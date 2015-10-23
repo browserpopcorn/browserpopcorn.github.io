@@ -346,17 +346,18 @@ body {
 	background-color: #b79007
 }
 
-.single .watch-button {
+.single .watch-button{
+	text-decoration: none;
 	position: absolute;
-	top: 348px;
+	top: 350px; /* add 57*/
 	left: 0px;
-	color: #FFF;
+	color: #0c0b00;
 	display: block;
 	font-weight: bold;
 	font-size: 18px;
 	width: 100%;
 	padding: 15px;
-	text-align: center;
+	text-align: center;;
 	background-color: #3498DB;
 	transition: background-color .2s ease-in-out;
 	cursor: pointer;
@@ -453,6 +454,9 @@ body {
 .movies {
 	text-align: center;
 	margin-bottom: 20px;
+}
+.movies a{
+	text-decoration: none;
 }
 
 .movies .movie {
@@ -606,4 +610,28 @@ body {
 
 .advertisement .close:hover {
 	opacity: 1;
+}
+.tab {
+	position : center;
+	width : 10px;
+	height: 10px;
+}
+.tab a {
+	
+	display: block;
+	font-weight: bold;
+	font-size: 13px;
+	transition: background-color ease 0.3s;
+	color: #999999;
+	border-radius: 3px;
+	padding: 8px;
+	text-decoration: none;
+}
+
+.tab a.active, .tab a.active:hover {
+	background-image: linear-gradient(to bottom, #3076ce 0%, #175ab0 100%);
+	color: #FFF;
+	font-weight: bold;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+	cursor: default;
 }
