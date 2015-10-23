@@ -1,0 +1,273 @@
+/* RESET CSS
+------------------------------------------------------------------------------------------------*/
+html, body { height: 100%; width: 100%; }
+html, body, video { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; font-family: inherit; }
+:focus { outline: 0; }
+.none { display: none !important; visibility: hidden !important; }
+.hidden { overflow:hidden !important; }
+.ss-tooltip-content { display: none; position: absolute; color: #151515; font-size: 11px; line-height: 11px; text-align: center; padding-right: 8px; padding-left: 8px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding-top: 5px; padding-bottom: 5px; border: 1px solid #e5e5e5; background-color: #f0f0f0; font-weight: normal; cursor: default !important; white-space: nowrap; z-index: 1900; }
+#ss-video-player * { -moz-user-select:none; -webkit-user-select:none; box-sizing:content-box !important; }
+#ss-video-player:-ms-fullscreen { position:absolute; top:0; left:0; width: 100%; height: 100%; }
+.ss-zoom { zoom: 2; -ms-zoom: 2; -webkit-zoom: 2; -moz-transform: scale(2,2); -moz-transform-origin: left top; }
+
+/* Genel Yapı CSS Kodları
+------------------------------------------------------------------------------------------------*/
+#ss-video-player { position: relative; display: block; font-family: Arial; text-decoration: none; font-size: 12px; font-weight: normal; cursor: default; margin: 0px; padding: 0px; border: none; background-color: #000; z-index: 1000; }
+#ss-video-player .ss-video { display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: 1000; }
+#ss-video-player .ss-video video { display: block; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; }
+
+/* CONTROLS KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-controls { display: block; height: 60px; width: 100%; position: absolute; z-index: 1200; right: 0px; bottom: 0px; }
+#ss-video-player .ss-controls:before { content: ""; display: block; background-color: #111; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: -1; opacity: 0.8; }
+#ss-video-player .ss-controls .ss-controls-container { display: block; height: 50px; position: absolute; left: 0px; top: 5px; width: 100%; }
+#ss-video-player .ss-controls .ss-controls-container .ss-time-rail { background-color: #f0f0f0; display: none; height: 10px; position: absolute; color: #151515; font-size: 10px; line-height: 10px; text-align: center; padding-right: 8px; padding-left: 8px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding-top: 5px; padding-bottom: 5px; border: 1px solid #e5e5e5; bottom: 60px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress { display: block; height: 18px; width: 100%; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container { display: block; height: 4px; width: 100%; position: absolute; left: 0px; top: 7px; cursor: pointer; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-progress-total { display: block; height: 100%; width: 100%; background-color: #555; position: absolute; left: 0px; top: 0px; z-index: 1210; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-progress-buffered { display: block; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 1220; background-color: #777; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-progress-current { display: block; height: 100%; position: absolute; z-index: 1230; left: 0px; top: 0px; background-color: #ffcc33; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-progress-handle { display: block; width: 3px; height: 12px; position: absolute; top: -4px; background-color: #ffcc33; z-index: 1240; margin-left: -1.5px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-indicators { z-index: 1235; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-promo-indicator { background-color: #38f; display: block; position: absolute; height: 100%; width: 6px; left: 0px; top: 0px; z-index: 1235; }
+#ss-video-player .ss-controls .ss-controls-container .ss-progress .ss-progress-container .ss-indicators .ss-adsIndicator { background-color: #38f; display: block; height: 100%; width: 4px; position: absolute; top: 0px; }
+
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control { display: block; height: 32px; width: 100%; position: absolute; left: 0px; bottom: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left { display: block; height: 32px; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons { display: block; height: 32px; width: 32px; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons div { display: block; position: absolute; height: 32px; width: 32px; left: 0px; top: 0px; cursor: pointer; background-image: url(../img/ssplayer.svg); }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-play { background-position: 0px 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-play:hover { background-position: -32px 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-pause { background-position: 0px -32px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-pause:hover { background-position: -32px -32px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-repeat { background-position: 0px -64px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-play-pause-repeat-buttons .ss-repeat:hover { background-position: -32px -64px; }
+
+
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume { display: block; height: 32px; width: 32px; position: absolute; left: 32px; top: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume div { display: block; height: 32px; width: 32px; position: absolute; left: 0px; top: 0px; cursor: pointer; background-image: url(../img/ssplayer.svg); }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-up { background-position: 0px -96px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-up:hover { background-position: -32px -96px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-down { background-position: 0px -128px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-down:hover { background-position: -32px -128px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-mute { background-position: 0px -160px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-mute:hover { background-position: -32px -160px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-off { background-position: 0px -192px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-volume .ss-volume-off:hover { background-position: -32px -192px; }
+
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-time { display: block; height: 32px; position: absolute; left: 64px; top: 0px; color: #fff; text-align: left; line-height: 32px; margin-left: 7px; width: 140px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-time div { display: inline-block; padding-right: 2px; padding-left: 2px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-time .ss-current { color: #d5d5d5; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-time .ss-time-split { color: #959595; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-left .ss-time .ss-duration { color: #959595; }
+
+
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right { display: block; height: 32px; position: absolute; right: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right > div { display: block; height: 32px; width: 32px; position: absolute; top: 0px; cursor: pointer; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen { right: 0px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen div { display: block; height: 32px; width: 32px; position: absolute; top: 0px; left: 0px; background-image: url(../img/ssplayer.svg); }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen .ss-enterfullscreen { background-position: 0px -224px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen .ss-enterfullscreen:hover { background-position: -32px -224px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen .ss-exitfullscreen { background-position: 0px -256px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-fullscreen .ss-exitfullscreen:hover { background-position: -32px -256px; }
+
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-source { right: 32px; background-image: url(../img/ssplayer.svg); background-position: 0px -288px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-source:hover { background-position: -32px -288px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-source.selected { background-position: -32px -288px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-language { right: 64px; background-image: url(../img/ssplayer.svg); background-position: 0px -320px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-language:hover { background-position: -32px -320px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-language.selected { background-position: -32px -320px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-quality { right: 96px; background-image: url(../img/ssplayer.svg); background-position: 0px -352px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-quality:hover { background-position: -32px -352px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-quality.selected { background-position: -32px -352px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-quality small { background-color: #fc3; font-size: 8px; line-height: 8px; margin: 0px; position: absolute; left: 16px; top: 3px; padding-top: 1px; padding-right: 2px; padding-bottom: 1px; padding-left: 2px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-subtitle { right: 128px; background-image: url(../img/ssplayer.svg); background-position: 0px -384px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-subtitle:hover { background-position: -32px -384px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-subtitle.selected { background-position: -32px -384px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-share { right: 160px; background-image: url(../img/ssplayer.svg); background-position: 0px -416px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-share:hover { background-position: -32px -416px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-infinite { right: 160px; background-image: url(../img/ssplayer.svg); background-position: 0px -1071px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-infinite:hover { background-position: -32px -1071px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-infinite.selected { background-position: -32px -1071px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-speed { right: 160px; background-image: url(../img/ssplayer.svg); background-position: 0px -480px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-speed:hover { background-position: -32px -480px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-speed.selected { background-position: -32px -480px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-annotations { display: block; height: 32px; width: 32px; position: absolute; top: 0px; background-image: url(../img/ssplayer.svg); background-position: 0px -448px; }
+
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-annotations:hover { background-position:-32px -448px; }
+#ss-video-player .ss-controls .ss-controls-container .ss-control .ss-control-right .ss-annotations.selected { background-position:-32px -448px; }
+
+
+/* LAYERS KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-layers { display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: 1100; }
+
+#ss-video-player .ss-layers .ss-layer-play-pause { position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; overflow: hidden; display: block; background-repeat: no-repeat; z-index: 1120; }
+#ss-video-player .ss-layers .ss-layer-play-pause div { position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; display: block; }
+#ss-video-player .ss-layers .ss-layer-play-pause .ss-layer-repeat:before { content: ""; background-color: #111; position: absolute; z-index: -1; height: 100%; width: 100%; left: 0px; top: 0px; opacity:0.5 }
+#ss-video-player .ss-layers .ss-layer-play-pause .ss-layer-repeat .ss-repeat-icon { height: 64px; width: 64px; background-image: url(../img/ssplayer.svg); background-position: 0px -1231px; display: none; margin-top: -32px; margin-left: -32px; position: absolute; left: 50%; top: 50%; cursor: pointer; }
+#ss-video-player .ss-layers .ss-layer-play-pause .ss-layer-repeat .ss-repeat-icon:hover { background-position: 0px -1295px; }
+
+#ss-video-player .ss-layers .ss-layer-volume { display: none; height: 60px; width: 70%; margin-left: -35%; position: absolute; left: 50%; top: 70px; z-index: 1150; }
+#ss-video-player .ss-layers .ss-layer-volume:before { content: ""; display: block; background-color: #111; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: -1; opacity: 0.8; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons { display: block; height: 60px; width: 60px; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons div { background-image: url(../img/ssplayer.svg); position: absolute; left: 6px; top: 6px; height: 32px; width: 32px; zoom: 1.5; -ms-zoom: 1.5; -webkit-zoom: 1.5; -moz-transform: scale(1.5,1.5); -moz-transform-origin: left top; cursor: pointer; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-up { background-position: 0px -96px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-up:hover { background-position: -32px -96px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-down { background-position: 0px -128px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-down:hover { background-position: -32px -128px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-mute { background-position: 0px -160px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-mute:hover { background-position: -32px -160px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-off { background-position: 0px -192px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-icons .ss-volume-off:hover { background-position: -32px -192px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-value { display: block; text-align: center; font-size: 24px; line-height: 60px; color: #e5e5e5; position: absolute; height: 60px; width: 60px; top: 0px; right: 0px; }
+#ss-video-player .ss-layers .ss-layer-volume .ss-layer-volume-section { display: block; height: 8px; position: absolute; left: 0px; top: 26px; }
+.noUi-target, .noUi-target * { -webkit-touch-callout: none; -webkit-user-select: none; -ms-touch-action: none; -ms-user-select: none; -moz-user-select: none; -moz-box-sizing: border-box; box-sizing: border-box; }
+.noUi-target { position: relative; direction: ltr; }
+.noUi-base { width: 100%; height: 100%; position: relative; }
+.noUi-origin { position: absolute; right: 0; top: 0; left: 0; bottom: 0; }
+.noUi-handle { position: relative; z-index: 1; }
+.noUi-stacking .noUi-handle { z-index: 10;  }
+.noUi-stacking + .noUi-origin { *z-index: -1; }
+.noUi-state-drag * { cursor: inherit !important; }
+.noUi-horizontal { height: 6px; cursor: pointer; }
+.noUi-background { background: #777; }
+.noUi-connect { background-color: #FC3; }
+.noUi-dragable { cursor: w-resize; }
+.noUi-handle { background-color: #fc3; display: block; height: 20px; width: 8px; margin-left: -4px; margin-top: -7px; cursor: pointer; }
+[disabled] .noUi-handle { cursor: not-allowed; }
+
+
+
+
+#ss-video-player .ss-layers .ss-table { display: none; width: 100px; position: absolute; bottom: 65px; color: #e5e5e5; padding: 5px; font-size: 11px; z-index: 1180; }
+#ss-video-player .ss-layers .ss-table:before { content: ""; display: block; background-color: #111; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: -1; opacity: 0.8; }
+#ss-video-player .ss-layers .ss-table .ss-title { color: #959595; line-height: 25px; height: 25px; width: 100%; text-align: center; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #4a4a4a; }
+#ss-video-player .ss-layers .ss-table .ss-row { display: block; color: #fff; padding-right: 5px; padding-left: 5px; line-height: 25px; height: 25px; margin-top: 4px; margin-bottom: 4px; cursor: pointer; position: relative; }
+#ss-video-player .ss-layers .ss-table .ss-row:hover { color: #000; background-color: #c5c5c5; }
+#ss-video-player .ss-layers .ss-table .ss-row.selected { color: #000; background-color: #fc3; }
+#ss-video-player .ss-layers .ss-table .ss-row.selected:hover { color: #000; background-color: #fb0; }
+#ss-video-player .ss-layers .ss-table .ss-row small { display: block; height: 25px; width: 25px; position: absolute; top: 0px; right: 5px; text-align: right; }
+
+
+#ss-video-player .ss-layers .ss-layer-subtitle { display: block; position: absolute; width: 100%; bottom: 83px; left: 0px; text-align: center; z-index: 1110; }
+#ss-video-player .ss-layers .ss-layer-subtitle .ss-layer-subtitle-content { display: inline-block; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; color: #fff; font-weight: bold; font-size: 16px; overflow: hidden; margin-right: auto; margin-left: auto; }
+
+
+#ss-video-player .ss-layers .ss-layer-share { display: none; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: 1190; cursor: default !important; }
+#ss-video-player .ss-layers .ss-layer-share:before { content: ""; display: block; height: 100%; width: 100%; position: absolute; z-index: -1; left: 0px; top: 0px; background-color: #111; opacity: 0.5 }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-close { display: block; height: 32px; width: 32px; position: absolute; top: 10px; right: 10px; background-image: url(../img/ssplayer.svg); background-position: 0px -1024px; cursor: pointer; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-close:hover { background-position: -32px -1024px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container { display: block; height: 130px; width: 420px; margin-top: -65px; margin-left: -210px; position: absolute; left: 50%; top: 50%; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons { display: block; height: 90px; width: 100%; position: absolute; left: 0px; top: 0px; text-align: center; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button { display: inline-block; background-color: #151515; margin: 5px; height: 64px; width: 64px; cursor: pointer; padding: 8px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button > div { display: block; height: 100%; width: 100%; background-image: url(../img/ssplayer.svg); }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-facebook { background-position: 0px -512px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-facebook:hover { background-position: 0px -576px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-twitter { background-position: 0px -640px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-twitter:hover { background-position: 0px -704px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-google { background-position: 0px -768px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-google:hover { background-position: 0px -832px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-whatsapp { background-position: 0px -896px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-buttons .ss-layer-share-button .ss-whatsapp:hover { background-position: 0px -960px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-link { display: block; height: 40px; width: 100%; position: absolute; left: 0px; bottom: 0px; }
+#ss-video-player .ss-layers .ss-layer-share .ss-layer-share-container .ss-layer-share-link .ss-layer-share-input { display: block; margin: 0px; height: 20px; width: 100%; position: absolute; left: 0px; text-align: center; background-color: transparent !important; color: #dfdfdf; font-size: 14px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; line-height: 20px !important; padding: 0px; bottom: 0px; }
+
+#ss-video-player .ss-layers .ss-logo { display: block; height: 50px; width: 50px; position: absolute; z-index: 1140; opacity: 0.25; }
+#ss-video-player .ss-layers .ss-logo:hover { opacity: 1 }
+#ss-video-player .ss-layers .ss-logo.ss-circle { -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
+
+#ss-video-player .ss-layers .ss-loading { display: none; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: 1170; }
+#ss-video-player .ss-layers .ss-loading:before{ content: ""; background-color: #111; display: block; height: 100%; width: 100%; position: absolute; z-index: -1; left: 0px; top: 0px; opacity: 0.75 }
+#ss-video-player .ss-layers .ss-loading .ss-spinner { width: 60px; height: 60px; text-align: center; font-size: 10px; position: absolute; left: 50%; top: 50%; display: block; margin-top: -30px; margin-left: -30px; }
+#ss-video-player .ss-layers .ss-loading .ss-spinner > div { background-color: #fc3; height: 100%; width: 6px; display: inline-block; -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out; animation: sk-stretchdelay 1.2s infinite ease-in-out; margin-right: 1px; margin-left: 1px; }
+#ss-video-player .ss-layers .ss-loading .ss-spinner .ss-rectangle-2 { -webkit-animation-delay: -1.1s; animation-delay: -1.1s; }
+#ss-video-player .ss-layers .ss-loading .ss-spinner .ss-rectangle-3 { -webkit-animation-delay: -1.0s; animation-delay: -1.0s; }
+#ss-video-player .ss-layers .ss-loading .ss-spinner .ss-rectangle-4 { -webkit-animation-delay: -0.9s; animation-delay: -0.9s; }
+#ss-video-player .ss-layers .ss-loading .ss-spinner .ss-rectangle-5 { -webkit-animation-delay: -0.8s; animation-delay: -0.8s; }
+@-webkit-keyframes sk-stretchdelay { 0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  20% { -webkit-transform: scaleY(1.0) } }
+@keyframes sk-stretchdelay { 0%, 40%, 100% { transform: scaleY(0.4); -webkit-transform: scaleY(0.4); } 20% { transform: scaleY(1.0); -webkit-transform: scaleY(1.0); } }
+
+
+/* PROMO KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-promo { background-color: #000; position: absolute; z-index: 1300; height: 100%; width: 100%; left: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-href { display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: 1315; cursor: pointer; }
+#ss-video-player .ss-promo .ss-promo-video { display: block; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: 1310; }
+#ss-video-player .ss-promo .ss-promo-video video { display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls { position: absolute; height: 80px; width: 92%; left: 50%; bottom: 20px; margin-left: -46%; display: block; z-index: 1320; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-progress { display: block; height: 20px; width: 100%; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-progress .ss-promo-progress-container { display: block; height: 5px; width: 100%; position: absolute; left: 0px; top: 0px; cursor: pointer; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-progress .ss-promo-progress-container .ss-promo-progress-total { display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; background-color: #777; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-progress .ss-promo-progress-container .ss-promo-progress-current { display: block; height: 100%; width: 0%; position: absolute; left: 0px; top: 0px; background-color: #38f; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-progress .ss-promo-progress-container .ss-promo-progress-handle { display: block; height: 15px; width: 4px; position: absolute; left: 0%; top: 0px; background-color: #38f; margin-left: -2px; margin-top: -5px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control { display: block; height: 60px; width: 100%; position: absolute; left: 0px; bottom: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center { display: block; height: 60px; width: 180px; position: absolute; left: 50%; top: 0px; margin-left: -90px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-current { text-align: left; display: block; font-size: 12px; line-height: 60px; color: #d5d5d5; height: 60px; width: 60px; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-control-play-pause { display: block; height: 60px; width: 60px; position: absolute; left: 60px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-control-play-pause > div { display: block; height: 32px; width: 32px; position: absolute; left: 0px; top: 0px; background-image: url(../img/ssplayer.svg); zoom: 1.875; -ms-zoom: 1.875; -webkit-zoom: 1.875; -moz-transform: scale(1.875,1.875); -moz-transform-origin: left top; cursor: pointer; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-control-play-pause .ss-promo-play { background-position: -32px 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-control-play-pause .ss-promo-pause { background-position: -29px -32px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-center .ss-promo-duration { text-align: right; display: block; font-size: 12px; line-height: 60px; color: #d5d5d5; height: 60px; width: 60px; position: absolute; right: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-left { display: block; height: 60px; width: auto; position: absolute; left: 0px; top: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-left .ss-promo-button { display: block; height: auto; font-size: 12px; line-height: 20px; color: #333; position: absolute; width: auto; padding: 10px; left: 0px; top: 10px; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; overflow: hidden; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-left .ss-promo-button:before { content: ""; display: block; height: 100%; width: 100%; position: absolute; z-index: -1; left: 0px; top: 0px; opacity: 0.5; background-color: #111; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-left .ss-promo-button span { background-color: #FFF; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right { display: block; height: 60px; width: auto; position: absolute; right: 0px; top: 0px; white-space: nowrap; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right .ss-promo-button { display: block; height: auto; font-size: 12px; line-height: 20px; color: #fff; position: absolute; width: auto; padding: 10px; top: 10px; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; overflow: hidden; right: 0px; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right .ss-promo-button:before { content: ""; display: block; height: 100%; width: 100%; position: absolute; z-index: -1; left: 0px; top: 0px; opacity: 0.5; background-color: #111; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right .ss-promo-button span { background-color: #FFF; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; color: #333; cursor: pointer; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right .ss-promo-button span:hover { color: #f5f5f5; background-color: #38f; }
+#ss-video-player .ss-promo .ss-promo-controls .ss-promo-control .ss-promo-control-right .ss-promo-button small { font-size: 12px; }
+
+
+/* ADVERTISING KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-advertising, ck-advertising * { z-index: 1130; }
+#ss-video-player .ss-advertising .ss-advertising-open { display: none; height: 15px; width: 30px; position: absolute; overflow: hidden; z-index: 1135; cursor: pointer; left: 50%; bottom: 70px; margin-left: -15px; }
+#ss-video-player .ss-advertising .ss-advertising-open:before { content: ""; background-color: #111; display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: -1; opacity: 0.5; }
+#ss-video-player .ss-advertising .ss-advertising-open small { background-image: url(../img/ssplayer.svg); background-position: 0px -1065px; display: block; height: 6px; width: 10px; position: absolute; left: 10px; top: 5px; }
+#ss-video-player .ss-advertising .ss-advertising-open:hover:before { opacity: 1; background-color: #fff; }
+#ss-video-player .ss-advertising .ss-advertising-open:hover small { background-position: -32px -1065px; }
+#ss-video-player .ss-advertising .ss-adsBlock { display: none; position: absolute; left: 50%; bottom: 70px; overflow: hidden; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-content { display: block; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: 1130; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-close { display: block; height: 15px; width: 15px; position: absolute; top: 5px; right: 5px; overflow: hidden; z-index: 1135; cursor: pointer; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-close:before { content: ""; background-color: #111; display: block; height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; z-index: -1; opacity: 0.5; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-close small { background-image: url(../img/ssplayer.svg); background-position: 0px -1056px; display: block; height: 9px; width: 9px; position: absolute; left: 3px; top: 3px; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-close:hover:before { opacity: 1; background-color: #fff; }
+#ss-video-player .ss-advertising .ss-adsBlock .ss-adsBlock-close:hover small { background-position: -32px -1056px; }
+
+
+/* CONTEXTMENU KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-menu { display:none; position: absolute; left: 0px; top: 0px; z-index: 1900; color: #ddd; font-size: 11px; }
+#ss-video-player .ss-menu .ss-menu-ul { display: block; margin: 0px; padding: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; list-style-image: none; list-style-type: none; position: absolute; width: 155px; }
+#ss-video-player .ss-menu .ss-menu-ul:before { content: ""; height: 100%; width: 100%; background-color: #111; display: block; position: absolute; z-index: -1; left: 0px; top: 0px; opacity:0.5; }
+#ss-video-player .ss-menu .ss-menu-ul .ss-menu-li { list-style-image: none; list-style-type: none; display: block; padding-top: 7px; padding-right: 15px; padding-bottom: 7px; padding-left: 15px; font-size: 11px; line-height: 11px; white-space: nowrap; cursor: pointer; margin: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #444; position: relative; }
+#ss-video-player .ss-menu .ss-menu-ul .ss-menu-li:hover { color: #111; background-color: #fc3; border-bottom-color: #fc3; }
+#ss-video-player .ss-menu .ss-menu-ul .ss-menu-li:hover .ss-menu-dropdown-ul .ss-menu-dropdown-li { color: #ddd }
+#ss-video-player .ss-menu .ss-menu-ul .ss-menu-li .ss-menu-arrow { border-color: transparent transparent transparent #ddd; border-style: solid; border-width: 5px; width: 0px; height: 0px; position: absolute; top: 7.5px; right: 3px; }
+#ss-video-player .ss-menu .ss-menu-ul .ss-menu-li:hover:hover .ss-menu-arrow { border-color: transparent transparent transparent #111; }
+
+/* ERRORS KODLARI
+------------------------------------------------------------------------------------------------*/
+#ss-video-player .ss-error { background-color: #111; display: block; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; z-index: 1800; }
+#ss-video-player .ss-error .ss-error-container { display: block; height: 260px; width: 100%; margin-top: -180px; position: absolute; left: 0px; top: 50%; }
+#ss-video-player .ss-error .ss-error-container .ss-error-image { background-image: url(../img/error.svg); background-position: 0px 0px; display: block; height: 140px; width: 200px; position: absolute; left: 50%; top: 0px; margin-left: -100px; }
+#ss-video-player .ss-error .ss-error-container .ss-error-content { display: block; height: 120px; width: 100%; position: absolute; left: 0px; bottom: 0px; }
+#ss-video-player .ss-error .ss-error-container .ss-error-content .ss-error-title { text-align: center; display: block; height: 60px; width: 100%; font-size: 20px; line-height: 60px; color: #d5d5d5; font-weight: bold; }
+#ss-video-player .ss-error .ss-error-container .ss-error-content .ss-error-text { display: block; height: 60px; width: 100%; font-size: 13px; line-height: 20px; color: #b5b5b5; text-align: center; }
+#ss-video-player .ss-error .ss-error-logo { display: block; height: 60px; width: 100px; position: absolute; left: 50%; bottom: 0px; margin-left: -50px; background-position: center bottom; background-image: url(../img/error.svg); }
