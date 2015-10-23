@@ -1,0 +1,1 @@
+function array_rand(r,t){var n=[],a=t||1,e=function(r,t){for(var n=!1,a=0,e=r.length;e>a;){if(r[a]===t){n=!0;break}a++}return n};if("[object Array]"===Object.prototype.toString.call(r)&&a<=r.length)for(;;){var o=Math.floor(Math.random()*r.length);if(n.length===a)break;e(n,o)||n.push(o)}else n=null;return 1==a?n.join():n}
