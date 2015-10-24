@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Assistir Divertida Mente (2015) | Browser Popcorn Brasil</title>
+<title>Assistir Evereste (2015) | Browser Popcorn Brasil</title>
 <link href="../assets/css/ssplayer.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="../assets/js/ssplayer.min.js"></script>
@@ -22,43 +22,27 @@
 			position: "bottom-right",
 			shape: "square"
 		  },
-			languages: {		
-			default: {
-				default: {
-					language: "pt",
-					quality: "360p"
-				},
-				clicked: {
-					pt: "360p",
-					en: "360p"
-				}
-			},
-			
-			pt: {
-				label: "Portugues",
-				quality: {
-					"720p": "http://www11.uptostream.com/hhcbjx357c/720/0",
-					"480p": "http://www11.uptostream.com/hhcbjx357c/480/0",
-					"360p": "http://www11.uptostream.com/hhcbjx357c/360/0"    
-				}
-			},
-			
-			en: {
-				label: "English",
-				quality: {
-					"720p": "http://www14.uptostream.com/hizkh94f0f/720/0",
-					"480p": "http://www14.uptostream.com/hizkh94f0f/480/0",
-					"360p": "http://www14.uptostream.com/hizkh94f0f/360/0"
-				}
-			}
-			
+		 subtitle: {
+		default: "pt", 
+		en: {
+			label: "English",
+			src: "subtitle/everest/en/subtitle.srt"
+		},
+		pt: {
+			label: "Portugues",
+			src: "subtitle/everest/pt-br/subtitle.srt"
 		}
+		},
+		quality: {
+		    default: "360p",
+		    "360p": "http://www52.uptostream.com/hj46104317/360/0",
+		    }
 		});
 	})
 </script>
 </head>
 
 <body>
-<video id="ssvideo" src="http://www11.uptostream.com/hhcbjx357c/360/0"></video>
+<video id="ssvideo" src="http://www52.uptostream.com/hj46104317/360/0"></video>
 </body>
 </html>
