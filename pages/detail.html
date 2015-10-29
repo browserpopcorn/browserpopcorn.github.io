@@ -1,0 +1,15 @@
+<div class="single-darken"></div>
+	<div class="single" ng-repeat="movie in movies">
+		<div class="poster">
+			<img src="{{movie.posters}}">
+		</div>
+		<a class="watch-button" href="#/watch/{{movie.link}}">Assistir</a>
+		<a href="http://www.imdb.com/title/{{movie.imdbid}}/" class="imdb-button" target="_blank">IMDB {{movie.imdb}}</a>
+		<div class="title">{{movie.name}}</div>
+		<div class="year">{{movie.year}}</div>
+		<div class="plot">
+			<p>
+				{{movie.sinopse}}
+			</p>
+		</div>
+	</div>

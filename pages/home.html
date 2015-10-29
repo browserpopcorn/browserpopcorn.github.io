@@ -1,0 +1,15 @@
+<div class="single-darken"></div>
+	<div class="movies">
+		<a href="#/movies/{{movie.link}}" ng-repeat="movie in movies">
+			<div class="movie">
+				<div class="poster">
+					<div class="eye">
+						<i class="fa fa-eye"></i>
+					</div>
+					<img src="{{movie.posters}}">
+				</div>					
+				<div class="title">{{movie.name}}</div>
+				<div class="year">{{movie.year}}</div>
+			</div>
+		</a>	
+	</div>
