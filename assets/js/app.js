@@ -40,6 +40,8 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
       movieApp.controller('movieListCtrl', function ($scope, $http){
         $http.get('http://api.mypopcorn.ga/movies/0').success(function(movies) {
           $scope.movies = movies;
+        }).error(function (response, status) {
+          console.log(response);    
         });
       });
       movieApp.controller('movieSearchCtrl', function ($scope, $http, $routeParams){
