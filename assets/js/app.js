@@ -38,34 +38,34 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
           }
       });
       movieApp.controller('movieListCtrl', function ($scope, $http){
-        $http.get('http://api.mypopcorn.ga/movies/0').success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/movies/0').success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
         });
       });
       movieApp.controller('movieSearchCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.ga/search/' + $routeParams.movieSearch).success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/search/' + $routeParams.movieSearch).success(function(movies) {
           $scope.movies = movies;
         });
       });
       movieApp.controller('moviePopularCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.ga/popular/0').success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/popular/0').success(function(movies) {
           $scope.movies = movies;
         });
       });
       movieApp.controller('movieDetailCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.ga/movie/' + $routeParams.movieName).success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/movie/' + $routeParams.movieName).success(function(movies) {
           $scope.movies = movies;
         });
       });
       movieApp.controller('movieGenreCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.ga/genre/' + $routeParams.movieGenre).success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/genre/' + $routeParams.movieGenre).success(function(movies) {
           $scope.movies = movies;
         });
       });
       movieApp.controller('movieWatchCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.ga/movie/' + $routeParams.movieId).success(function(movies) {
+        $http.get('http://api.mypopcorn.cf/movie/' + $routeParams.movieId).success(function(movies) {
           $scope.movies = movies;
           
         });
