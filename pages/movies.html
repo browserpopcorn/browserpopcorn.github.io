@@ -1,0 +1,17 @@
+            <div ng-repeat="movie in movies">
+                <div id="item">
+                    <div ng-click="showIn(movie.link)" class="cover" style="background-image: url({{movie.posters}});">
+                        <div class="itemoverlay">
+                            <div class="addtofavorites"></div>
+                            <div class="viewmoreinfo"></div>
+                            <div class="addtoqueue"></div>
+                        </div>
+                    </div>
+                    <div class="title">
+                        {{movie.name}}
+                    </div>
+                    <div class="year">
+                        {{movie.year}}
+                    </div>
+                </div>
+            </div>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../assets/css/item.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/detailed-info.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/frame.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/tv-info.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <title>Popcorn Time - Dev UI</title>
+</head>
+
+<body>
+    <div class="background">
+        <div id="header">
+
+
+            <div class="close"></div>
+
+            <div class="max"></div>
+
+            <div class="min"></div>
+            <div class="max-max"></div>
+
+            <div class="title">
+                Popcorn&nbsp;Time
+            </div>
+
+            <div class="movies">
+                Movies
+            </div>
+
+
+
+            <div class="tv-series">
+                TV&nbsp;Series
+            <div class="selected tv"></div>
+            </div>
+
+
+
+            <div class="settings"></div>
+            <div class="queue"></div>
+            <div class="favorites"></div>
+
+            <form class="SearchField">
+                <input type="search" placeholder="Search">
+            </form>
+
+        </div>
+
+
+        <div id="tv-container">
+
+            <div id="overlay" class="black-overlay"></div>
+
+
+
+
+
+            <div  class="poster">
+   <div class="poster-overlay"></div>
+                   <div style="background-image:url(https://zapp.trakt.us/images/fanart/19657.jpg?16);" class="poster-backround"></div>
+                <div style="background-image:url(https://zapp.trakt.us/images/posters/19657-138.jpg?16);" class="cover"></div>
+                <div class="title">House of cards</div>
+                <div class="tv-duration">60min</div>
+                <div class="dot"></div>
+                <div class="tv-genre">Drama</div>
+                <div class="dot"></div>
+                <div class="num-episodes">26 Episodes</div>
+                <div class="dot"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star null"></div>
+                
+                <div class="tv-overview">Majority House Whip Francis Underwood takes you on a long journey as he exacts his vengeance on those he feels wronged him - that is, his own cabinet members including the President of the United States himself. Dashing, cunning, methodical and vicious, Frank Underwood along with his equally manipulative yet ambiguous wife, Claire take Washington by storm through climbing the hierarchical ladder to power in this Americanized recreation of the BBC series of the same name.</div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+</body>
+
+<script src="js/jquery-2.1.0.min.js"></script>
+
+<script>
+    function hideElm(name) {
+        $('#' + name).fadeOut('slow');
+
+    }
+
+
+    function showElm(name) {
+        $('#' + name).fadeIn('slow');
+
+    }
+</script>
+
+</html>
+
+
+<div id="item-detail">
+
+    <div class="item-cover" style="background-image: url(http://zapp.trakt.us/images/posters_movies/180757.jpg?1);">
+
+    </div>
+    <div class="close" onclick="hideElm('overlay');  hideElm('item-detail');"></div>
+
+    <div class="item-title">Gravity</div>
+    <div class="item-year">2013</div>
+    <div class="dot"></div>
+    <div class="item-runtime">91 min</div>
+    <div class="dot"></div>
+
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star null"></div>
+    <div class="health-icon Excellent"></div>
+
+    <div class="item-overview">Dr. Ryan Stone (Sandra Bullock), is a brilliant medical engineer on her first Shuttle mission, with veteran astronaut Matt Kowalsky (George Clooney) in command of his last flight before retiring. But on a seemingly routine spacewalk, disaster strikes. The shuttle is destroyed, leaving Stone and Kowalsky completely alone - tethered to nothing but each other and spiraling out into the blackness. The deafening silence tells them they have lost any link to Earth.</div>
+    <div id="btn-watch">
+        <div class="watch-now">Watch Now</div>
+    </div>
+
+    <div class="q720">720</div>
+
+
+    <div class="q1080">1080</div>
+    <div class="quality switch white">
+        <input type="radio" name="switch" id="switch-off" checked>
+        <input type="radio" name="switch" id="switch-on">
+
+        <span class="toggle"></span>
+    </div>
+
+    <div class="flag first NA"></div>
+    <div class="flag italian"></div>
+    <div class="flag dutch"></div>
+    <div class="flag english"></div>
+    <div class="flag romanian"></div>
+    <div class="flag turkish"></div>
+    <div class="flag bosnian"></div>
+
+
+</div>

@@ -1,73 +1,86 @@
 var movieApp = angular.module('movieApp', ['ngRoute']);
-
+	
        movieApp.config(function($routeProvider) {
         $routeProvider.
           when('/', {
-            templateUrl: '.../../pages/home.html',
+            templateUrl: '.../../pages/movies.html',
             controller: 'movieListCtrl',
           }).
-          when('/search/:movieSearch', {
-            templateUrl: '.../../pages/home.html',
-            controller: 'movieSearchCtrl'
-          }).
-          when('/popular/', {
-            templateUrl: '.../../pages/home.html',
-            controller: 'moviePopularCtrl'
+          when('/series/', {
+            templateUrl: '.../../pages/series.html',
+            controller: 'serieListCtrl',
           }).
           when('/genre/:movieGenre', {
-            templateUrl: '.../../pages/home.html',
+            templateUrl: '.../../pages/movies.html',
             controller: 'movieGenreCtrl'
           }).
-          when('/movies/:movieName', {
-            templateUrl: '.../../pages/detail.html',
-            controller: 'movieDetailCtrl'
-          }).
-          when('/watch/:movieId', {
-            templateUrl: '.../../pages/watch.html',
-            controller: 'movieWatchCtrl'
+          when('/search/:movieSearch', {
+            templateUrl: '.../../pages/movies.html',
+            controller: 'movieSearchCtrl'
           }).
           otherwise({
             redirectTo: '/'
           });
 
-      });      
-      movieApp.controller('movieSearch', function ($scope, $window){
-         $scope.ngsearch = function() {
-          $window.location.href = '#/search/' + $scope.search;
-
-          }
-      });
-      movieApp.controller('movieListCtrl', function ($scope, $http){
-        $http.get('http://api.mypopcorn.cf/movies/0').success(function(movies) {
+    });
+    movieApp.controller('movieListCtrl', function ($scope, $http){
+        $http.get('http://localhost/api/movies/0').success(function(movies) {
+          $scope.movies = movies;
+        }).error(function (response, status) {
+          console.log(response);    
+        });
+   	});
+   	movieApp.controller('serieListCtrl', function ($scope, $http){
+        $http.get('http://localhost/api/movies/0').success(function(movies) {
+          $scope.movies = movies;
+        }).error(function (response, status) {
+          console.log(response);    
+        });
+   	});
+    movieApp.controller('movieSearchCtrl', function ($scope, $http, $routeParams){
+        $http.get('http://localhost/api/search/' + $routeParams.movieSearch).success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
         });
       });
-      movieApp.controller('movieSearchCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.cf/search/' + $routeParams.movieSearch).success(function(movies) {
+    movieApp.controller('movieGenreCtrl', function ($scope, $http, $routeParams){
+        $http.get('http://localhost/api/genre/' + $routeParams.movieGenre).success(function(movies) {
           $scope.movies = movies;
+        }).error(function (response, status) {
+          console.log(response);    
         });
       });
-      movieApp.controller('moviePopularCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.cf/popular/0').success(function(movies) {
-          $scope.movies = movies;
-        });
-      });
-      movieApp.controller('movieDetailCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.cf/movie/' + $routeParams.movieName).success(function(movies) {
-          $scope.movies = movies;
-        });
-      });
-      movieApp.controller('movieGenreCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.cf/genre/' + $routeParams.movieGenre).success(function(movies) {
-          $scope.movies = movies;
-        });
-      });
-      movieApp.controller('movieWatchCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://api.mypopcorn.cf/movie/' + $routeParams.movieId).success(function(movies) {
-          $scope.movies = movies;
-          
-        });
-      });
-
+    movieApp.controller('movieShow', function ($scope, $http, $sce){
+        $scope.showIn = function(movieName) {
+        $('#overlay').fadeIn('slow');
+        $('#item-detail').fadeIn('slow');
+        $http.get('http://localhost/api/movie/' + movieName).success(function(filmes) {
+        $scope.filmes = filmes;
+        var movie = filmes[0];
+        $scope.url = $sce.trustAsResourceUrl(movie.embed);
+        $scope.youtube = $sce.trustAsResourceUrl(movie.youtube);
+        }).error(function (response, status) {
+          console.log(response);    
+        });       
+        }
+        $scope.showPlayer = function() {
+          $('#item-detail').fadeOut('slow');
+          $('#item-player').fadeIn('slow');
+        }
+        $scope.showTrailer = function() {
+          $('#item-detail').fadeOut('slow');
+          $('#item-youtube').fadeIn('slow');
+        }      
+    });
+    movieApp.controller('movieSearch', function ($scope, $window){
+        $scope.ngsearch = function() {
+        $window.location.href = '#/search/' + $scope.search;
+        }
+    });
+    function hideElm(name){
+      $('#' + name).fadeOut('slow');
+    }
+    function showElm(name){
+       $('#' + name).fadeIn('slow');
+    }
