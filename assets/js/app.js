@@ -24,28 +24,28 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
     });
     movieApp.controller('movieListCtrl', function ($scope, $http){
-        $http.get('http://localhost/api/movies/0').success(function(movies) {
+        $http.get('http://api.mypopcorn.ga/movies/0').success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
         });
    	});
    	movieApp.controller('serieListCtrl', function ($scope, $http){
-        $http.get('http://localhost/api/movies/0').success(function(movies) {
+        $http.get('http://api.mypopcorn.ga/movies/0').success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
         });
    	});
     movieApp.controller('movieSearchCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://localhost/api/search/' + $routeParams.movieSearch).success(function(movies) {
+        $http.get('http://api.mypopcorn.ga/search/' + $routeParams.movieSearch).success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
         });
       });
     movieApp.controller('movieGenreCtrl', function ($scope, $http, $routeParams){
-        $http.get('http://localhost/api/genre/' + $routeParams.movieGenre).success(function(movies) {
+        $http.get('http://api.mypopcorn.ga/genre/' + $routeParams.movieGenre).success(function(movies) {
           $scope.movies = movies;
         }).error(function (response, status) {
           console.log(response);    
@@ -55,7 +55,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
         $scope.showIn = function(movieName) {
         $('#overlay').fadeIn('slow');
         $('#item-detail').fadeIn('slow');
-        $http.get('http://localhost/api/movie/' + movieName).success(function(filmes) {
+        $http.get('http://api.mypopcorn.ga/movie/' + movieName).success(function(filmes) {
         $scope.filmes = filmes;
         var movie = filmes[0];
         $scope.url = $sce.trustAsResourceUrl(movie.embed);
